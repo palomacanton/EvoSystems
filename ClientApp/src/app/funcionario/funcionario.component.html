@@ -1,0 +1,28 @@
+<h3>Funcionários</h3>
+<button class="btn btn-primary">Incluir Funcionário</button>
+<p *ngIf="funcionarios && funcionarios.length">
+  Não existem funcionários para exibir.
+</p>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Foto</th>
+      <th>Nome</th>
+      <th>RG</th>
+      <th>Departamento</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let funcionario of funcionarios">
+      <td>{{funcionario.foto}}</td>
+      <td>{{funcionario.nome}}</td>
+      <td>{{funcionario.rg}}</td>
+      <td>{{funcionario.Departamento}}</td>
+      <td>
+        <button>Alterar</button>
+        <button>Excluir</button>
+      </td>
+    </tr>
+  </tbody>
+</table>
