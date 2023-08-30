@@ -1,35 +1,36 @@
 using EvoSystems.Models;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Builder;
+using Microsoft.Extensions.DependencyInjection;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
-
 builder.Services.AddControllersWithViews();
 
-// Adicione o contexto do Entity Framework Core ao contêiner de injeção de dependência
-builder.Services.AddDbContext<Context>(options =>
-{
-    options.UseSqlServer(builder.Configuration.GetConnectionString("Database"));
-});
+// Add Entity Framework Core context to the dependency injection container
+builder.Services.AddDbContext<Context>(options => options.UseSqlServer(builder.Configuration.GetConnectionString("Database")));
 
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())
 {
-    // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
+    app.UseExceptionHandler("/Home/Error");
     app.UseHsts();
 }
 
 app.UseHttpsRedirection();
 app.UseStaticFiles();
+
 app.UseRouting();
 
-app.MapControllerRoute(
-    name: "default",
-    pattern: "{controller}/{action=Index}/{id?}");
+app.UseAuthorization();
 
 app.MapFallbackToFile("index.html");
+
+app.MapControllerRoute(
+    name: "api",
+    pattern: "api/{controller}/{action=Index}/{id?}");
 
 app.Run();

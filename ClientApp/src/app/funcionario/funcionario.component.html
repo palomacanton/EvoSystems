@@ -1,10 +1,11 @@
+<!DOCTYPE html>
 <h3>Funcionários</h3>
 <button class="btn btn-primary">Incluir Funcionário</button>
-<p *ngIf="funcionarios && funcionarios.length">
+<p *ngIf="funcionarios.length === 0">
   Não existem funcionários para exibir.
 </p>
 
-<table class="table">
+<table class="table" *ngIf="funcionarios.length > 0">
   <thead>
     <tr>
       <th>Foto</th>

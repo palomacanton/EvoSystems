@@ -6,6 +6,6 @@ namespace EvoSystems.Models
         public string Nome { get; set; }
         public string Foto { get; set; }
         public int RG { get; set; }
-        public Departamento Departamento { get; set; }
+        public Departamento DepartamentoId { get; set; }
     }
 }

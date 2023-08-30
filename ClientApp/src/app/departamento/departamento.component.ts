@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { IDepartamento } from './departamento';
+import { DepartamentoService } from './departamento.service';
 
 @Component({
   selector: 'app-departamento',
@@ -7,10 +8,12 @@ import { IDepartamento } from './departamento';
   styleUrls: ['./departamento.component.css']
 })
 export class DepartamentoComponent implements OnInit {
-  departamentos?: IDepartamento[];
-  constructor() { }
+  departamentos : IDepartamento[] = [];
+  constructor(private departamentoService: DepartamentoService) { }
 
   ngOnInit() {
+    this.departamentoService.getDepartamentos()
+      .subscribe(departamentoWebAPI => this.departamentos = departamentoWebAPI);
   }
 
 }

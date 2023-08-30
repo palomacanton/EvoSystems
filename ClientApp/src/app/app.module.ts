@@ -8,6 +8,8 @@ import { FuncionarioComponent } from './funcionario/funcionario.component';
 import { DepartamentoComponent } from './departamento/departamento.component';
 import { FooterComponent } from './footer/footer.component';
 import { HeaderComponent } from './header/header.component';
+import { FuncionarioService } from './funcionario/funcionario.service';
+import { DepartamentoService } from './departamento/departamento.service';
 
 @NgModule({
   declarations: [	
@@ -22,11 +24,12 @@ import { HeaderComponent } from './header/header.component';
     HttpClientModule,
     FormsModule,
     RouterModule.forRoot([
-      { path: '', component: DepartamentoComponent},
-      { path: 'funcionarios', component: FuncionarioComponent }
+      { path: "", component: DepartamentoComponent, pathMatch: 'full' },
+      { path: "funcionarios", component: FuncionarioComponent }
+
     ])
   ],
-  providers: [],
+  providers: [FuncionarioService, DepartamentoService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
