@@ -12,7 +12,7 @@ import { FuncionarioService } from './funcionario/funcionario.service';
 import { DepartamentoService } from './departamento/departamento.service';
 
 @NgModule({
-  declarations: [	
+  declarations: [
     AppComponent,
     FuncionarioComponent,
     DepartamentoComponent,

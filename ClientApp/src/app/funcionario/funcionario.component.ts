@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { IFuncionario } from './funcionario';
 import { FuncionarioService } from './funcionario.service';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-funcionario',
@@ -9,17 +10,11 @@ import { FuncionarioService } from './funcionario.service';
 })
 export class FuncionarioComponent implements OnInit {
   funcionarios : IFuncionario[] = [];
-  constructor(private funcionarioService : FuncionarioService) { }
+  constructor(private funcionarioService : FuncionarioService,
+    private activatedRoute: ActivatedRoute) {}
 
   ngOnInit() {
-    this.funcionarioService.getFuncionarios()
-      .subscribe(
-        (funcionarioWebAPI: any) => {
-          this.funcionarios = funcionarioWebAPI;
-        },
-        (error: any) => {
-          console.log(error);
-        }
-      );
+    this.funcionarioService.GetFuncionarios()
+      .subscribe(funcionarioWebAPI => this.funcionarios = funcionarioWebAPI);
   }
 }

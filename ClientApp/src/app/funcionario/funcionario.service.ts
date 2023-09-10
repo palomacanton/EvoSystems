@@ -10,7 +10,7 @@ export class FuncionarioService {
   private apiURL = this.baseUrl + "api/funcionarios";
   constructor(private http: HttpClient, @Inject('BASE_URL') private baseUrl: string) { }
 
-  getFuncionarios(): Observable<IFuncionario[]> {
+  GetFuncionarios(): Observable<IFuncionario[]> {
        return this.http.get<IFuncionario[]>(this.apiURL);
   }
 }

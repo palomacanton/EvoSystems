@@ -4,8 +4,6 @@ namespace EvoSystems.Models
 {
     public class Context : DbContext
     {
-        
-
         public DbSet<Departamento> Departamentos { get; set; }
         public DbSet<Funcionario> Funcionarios { get; set; }
 

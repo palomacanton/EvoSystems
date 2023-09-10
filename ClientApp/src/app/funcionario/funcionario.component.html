@@ -8,6 +8,7 @@
 <table class="table" *ngIf="funcionarios.length > 0">
   <thead>
     <tr>
+      <th>Id</th>
       <th>Foto</th>
       <th>Nome</th>
       <th>RG</th>
@@ -16,9 +17,11 @@
   </thead>
   <tbody>
     <tr *ngFor="let funcionario of funcionarios">
-      <td>{{funcionario.foto}}</td>
-      <td>{{funcionario.nome}}</td>
-      <td>{{funcionario.rg}}</td>
+
+      <td>{{funcionario.Id}}</td>
+      <td>{{funcionario.Foto}}</td>
+      <td>{{funcionario.Nome}}</td>
+      <td>{{funcionario.RG}}</td>
       <td>{{funcionario.Departamento}}</td>
       <td>
         <button>Alterar</button>

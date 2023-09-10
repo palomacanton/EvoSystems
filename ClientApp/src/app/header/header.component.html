@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <nav>
-  <a class="brand" routerLink="/">
+  <a class="brand" [routerLink]="['/']">
     <img src="/assets/evo.png" alt="EvoSystems">
     <h2>Evo Systems</h2>
   </a>
   <ul class="links">
-    <li><a routerLink="">Departamentos</a></li>
-    <li><a routerLink="funcionarios">Funcionários</a></li>
+    <li><a [routerLink]="['/']">Departamentos</a></li>
+    <li><a [routerLink]="['/funcionarios']">Funcionários</a></li>
   </ul>
 </nav>

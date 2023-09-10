@@ -12,7 +12,7 @@ export class DepartamentoComponent implements OnInit {
   constructor(private departamentoService: DepartamentoService) { }
 
   ngOnInit() {
-    this.departamentoService.getDepartamentos()
+    this.departamentoService.GetDepartamentos()
       .subscribe(departamentoWebAPI => this.departamentos = departamentoWebAPI);
   }
 

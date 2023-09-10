@@ -2,6 +2,7 @@ using EvoSystems.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.FileSystemGlobbing.Internal.Patterns;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -27,10 +28,13 @@ app.UseRouting();
 
 app.UseAuthorization();
 
-app.MapFallbackToFile("index.html");
+app.MapControllerRoute(
+    name: "default",
+    pattern: "{controller=DepartamentosController}/{action=GetDepartamentos}/{id?}");
 
 app.MapControllerRoute(
-    name: "api",
-    pattern: "api/{controller}/{action=Index}/{id?}");
+    name: "funcionarios",
+    pattern: "{controller=FuncionariosController}/{action=GetFuncionarios}/{id?}");
+
 
 app.Run();

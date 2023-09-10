@@ -1,9 +1,27 @@
-<!-- departamento.content.html -->
+<!DOCTYPE html>
 <h3>Departamentos</h3>
-<p *ngIf="!(departamentos && departamentos.length)">
+<button class="btn btn-primary">Incluir Departamento</button>
+<p *ngIf="departamentos.length === 0">
   Não existem departamentos para exibir.
 </p>
 
-<pre *ngIf="(departamentos && departamentos.length)">
-  {{ departamentos | json }}
-</pre>
+<table class="table" *ngIf="departamentos.length > 0">
+  <thead>
+    <tr>
+      <th>Id</th>
+      <th>Nome</th>
+      <th>Sigla</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let departamento of departamentos">
+      <td>{{departamento.Id}}</td>
+      <td>{{departamento.Nome}}</td>
+      <td>{{departamento.Sigla}}</td>
+      <td>
+        <button>Alterar</button>
+        <button>Excluir</button>
+      </td>
+    </tr>
+  </tbody>
+</table>
