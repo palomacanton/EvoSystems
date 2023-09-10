@@ -7,7 +7,7 @@ import { IFuncionario } from './funcionario';
   providedIn: 'root'
 })
 export class FuncionarioService {
-  private apiURL = this.baseUrl + "api/funcionarios";
+  private apiURL = this.baseUrl + "api/Funcionarios";
   constructor(private http: HttpClient, @Inject('BASE_URL') private baseUrl: string) { }
 
   GetFuncionarios(): Observable<IFuncionario[]> {

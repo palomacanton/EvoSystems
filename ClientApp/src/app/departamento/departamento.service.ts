@@ -7,7 +7,7 @@ import { IDepartamento } from './departamento';
   providedIn: 'root'
 })
 export class DepartamentoService {
-  private apiURL = this.baseUrl + "";
+  private apiURL = this.baseUrl + "api/Departamentos";
   constructor(private http: HttpClient, @Inject('BASE_URL') private baseUrl: string) { }
 
   GetDepartamentos(): Observable<IDepartamento[]> {

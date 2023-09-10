@@ -4,6 +4,6 @@ import { IDepartamento } from '../departamento/departamento';
   Foto: string;
   Nome: string;
   RG: number;
-  Departamento: IDepartamento;
+  DepartamentoId: IDepartamento;
 
 }
